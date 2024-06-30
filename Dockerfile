@@ -1,6 +1,6 @@
 # Build stage
 ARG TAG
-FROM cs50/cli:${TAG} as builder
+FROM cs50/cli:latest as builder
 ARG DEBIAN_FRONTEND=noninteractive
 
 
@@ -10,7 +10,7 @@ USER root
 
 # Install glibc sources for debugger
 # https://github.com/Microsoft/vscode-cpptools/issues/1123#issuecomment-335867997
-RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted" > /etc/apt/sources.list.d/_.list && \
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main" > /etc/apt/sources.list.d/_.list && \
     apt update && \
     apt install --no-install-recommends --no-install-suggests --yes \
         dpkg-dev && \
@@ -95,7 +95,7 @@ RUN npm install --global @vscode/vsce yarn && \
 
 
 # Final stage
-FROM cs50/cli:${TAG}
+FROM cs50/cli:latest
 
 
 # Unset user
