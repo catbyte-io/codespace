@@ -69,11 +69,9 @@ if [ "$(whoami)" != "root" ]; then
     command git config --global --replace-all credential.helper ""
     command git config --global --add credential.helper /opt/cs50/bin/gitcredential_github.sh
 
-    # Discourage use of git in repository
+    # Use of git in repository
     git() {
         if [[ "$PWD/" =~ ^/workspaces/"$RepositoryName"/ ]]; then
-            echo "You are in a repository managed by CS50. Git is disabled. See https://cs50.ly/git."
-        else
             command git "$@"
         fi
     }
