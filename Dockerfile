@@ -51,10 +51,10 @@ RUN cd /tmp && \
     mv noVNC-1.4.0 /opt/noVNC
 
 # Install Rust and Cargo
-RUN curl https://sh.rustup.rs -sSf | sh
+RUN curl -y https://sh.rustup.rs -sSf | sh
 
 # Install Bitwarden CLI
-RUN curl https://bws.bitwarden.com/install | sh
+RUN curl -y https://bws.bitwarden.com/install | sh
 
 # Install VS Code extensions
 RUN npm install --global @vscode/vsce yarn && \
@@ -107,6 +107,8 @@ FROM cs50/cli:latest
 USER root
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Upgrade pip
+RUN pip3 install --upgrade pip
 
 # Copy files from builder
 COPY --from=builder /build /build
