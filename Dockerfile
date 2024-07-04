@@ -50,6 +50,11 @@ RUN cd /tmp && \
     cd ../.. && \
     mv noVNC-1.4.0 /opt/noVNC
 
+# Install Rust and Cargo
+RUN curl https://sh.rustup.rs -sSf | sh
+
+# Install Bitwarden CLI
+RUN curl https://bws.bitwarden.com/install | sh
 
 # Install VS Code extensions
 RUN npm install --global @vscode/vsce yarn && \
