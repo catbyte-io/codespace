@@ -107,8 +107,6 @@ FROM cs50/cli:latest
 USER root
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Upgrade pip
-RUN pip3 install --upgrade pip
 
 # Copy files from builder
 COPY --from=builder /build /build
