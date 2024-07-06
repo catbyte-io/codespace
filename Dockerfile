@@ -55,7 +55,7 @@ RUN cd /tmp && \
 RUN curl -y https://sh.rustup.rs -sSf | sh
 
 # Install Bitwarden CLI
-RUN curl -y https://bws.bitwarden.com/install | sh
+RUN curl https://bws.bitwarden.com/install | sh
 
 # Install VS Code extensions
 RUN npm install --global @vscode/vsce yarn && \
@@ -101,7 +101,7 @@ RUN npm install --global @vscode/vsce yarn && \
 
 
 # Final stage
-FROM cs50/cli:latest
+FROM catbyte/cli:${TAG}
 
 
 # Unset user
@@ -134,6 +134,7 @@ RUN apt update && \
         php-cli \
         php-mbstring \
         php-sqlite3 \
+        postresql \
         xvfb \
         x11vnc && \
     apt clean
