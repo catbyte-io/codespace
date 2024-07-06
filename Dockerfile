@@ -10,7 +10,7 @@ USER root
 
 # Install glibc sources for debugger
 # https://github.com/Microsoft/vscode-cpptools/issues/1123#issuecomment-335867997
-RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main" > /etc/apt/sources.list.d/_.list && \
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted" > /etc/apt/sources.list.d/_.list && \
     apt update && \
     apt install --no-install-recommends --no-install-suggests --yes \
         dpkg-dev && \
