@@ -7,7 +7,6 @@
         "context": ".",
         "dockerfile": "Dockerfile"
     },
-    "features": {"ghcr.io/devcontainers/features/docker-in-docker": },
     "customizations": {
         "vscode": {
             "extensions": [
