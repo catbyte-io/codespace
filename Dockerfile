@@ -134,11 +134,11 @@ RUN apt update && \
         php-cli \
         php-mbstring \
         php-sqlite3 \
-        postresql \
         xvfb \
         x11vnc && \
     apt clean
 
+RUN apt install -y postgresql
 
 # Install Python packages
 RUN pip3 install --no-cache-dir \
