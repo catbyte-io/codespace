@@ -1,6 +1,7 @@
+# Adapted from cs50/codespace
 # Build stage
 ARG TAG
-FROM cs50/cli:latest AS builder
+FROM catbyte/cli:${TAG} AS builder
 ARG DEBIAN_FRONTEND=noninteractive
 
 
