@@ -1,4 +1,5 @@
 #!/bin/bash
+# from cs50/codespace
 
 set -e
 
