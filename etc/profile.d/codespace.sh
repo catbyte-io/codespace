@@ -1,3 +1,4 @@
+# from cs50/codespace
 # If not root
 if [ "$(whoami)" != "root" ]; then
 
