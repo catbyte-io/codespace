@@ -43,11 +43,6 @@ vendor/
 !Makefile
 EOT
 
-# Automatically ignore all large files
-echo -en "\n# Ignore files larger than 100M\n" >> .gitignore
-find . -size +100M | cut -c 2- | cat >> .gitignore
-awk '!NF||$1~/^#/ {print; next} {$1=$1} !seen[$0]++' .gitignore > /tmp/.gitignore
-mv -f /tmp/.gitignore .gitignore
 
 # unzip /build/glibc-sMfBJT/glibc.tar.gz
 sudo tar --extract --file /build/glibc-sMfBJT/glibc.tar.gz --directory /build/glibc-sMfBJT
