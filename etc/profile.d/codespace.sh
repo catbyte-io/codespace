@@ -12,16 +12,16 @@ if [ "$(whoami)" != "root" ]; then
     _hostname() {
 
         # If in cloud
-        if [[ "$CODESPACES" == "true" ]]; then
-            local url="http://[^:]+:(\x1b\[[0-9;]*m)?([0-9]+)(\x1b\[[0-9;]*m)?"
-            while read; do
-                echo "$REPLY" | sed -E "s#${url}#https://${CODESPACE_NAME}-\2.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}#"
-            done
+        #if [[ "$CODESPACES" == "true" ]]; then
+            #local url="http://[^:]+:(\x1b\[[0-9;]*m)?([0-9]+)(\x1b\[[0-9;]*m)?"
+            #while read; do
+                #echo "$REPLY" | sed -E "s#${url}#https://${CODESPACE_NAME}-\2.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}#"
+            #done
 
         # Else if local
-        else
+        #else
             tee
-        fi
+        #fi
     }
 
     # Filter out the http-server version information
