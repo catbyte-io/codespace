@@ -54,8 +54,10 @@ RUN cd /tmp && \
 # Install Rust and Cargo
 RUN curl -y https://sh.rustup.rs -sSf | sh
 
-# Install Bitwarden CLI
-RUN curl https://bws.bitwarden.com/install | sh
+# Install Bitwarden CLI https://bitwarden.com/help/developer-quick-start/
+RUN curl -O https://github.com/bitwarden/sdk/releases/download/bws-v0.2.1/bws-x86_64-unknown-linux-gnu-0.2.1.zip && unzip bws-x86_64-unknown-linux-gnu-0.2.1.zip && export PATH=/this/directory:$PATH
+
+# RUN curl https://bws.bitwarden.com/install | sh
 
 # Install VS Code extensions
 RUN npm install --global @vscode/vsce yarn && \
