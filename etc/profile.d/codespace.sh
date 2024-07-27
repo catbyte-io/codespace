@@ -76,9 +76,3 @@ if [ "$(whoami)" != "root" ]; then
     http-server() {
         command http-server "$@" | _hostname | _version | uniq
     }
-
-    # Rewrite URL in stdout
-    rstudio() {
-        command rstudio | _hostname
-    }
-fi
