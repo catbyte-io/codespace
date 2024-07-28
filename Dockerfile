@@ -51,6 +51,18 @@ RUN cd /tmp && \
     cd ../.. && \
     mv noVNC-1.4.0 /opt/noVNC
 
+# Install RStudio Server
+# https://dailies.rstudio.com/links/#rstudio-server-stable
+RUN apt update && \
+    apt install --no-install-recommends --no-install-suggests --yes gdebi-core && \
+    cd /tmp && \
+    curl --location --remote-name https://rstudio.org/download/latest/stable/server/jammy/rstudio-server-latest-amd64.deb && \
+    gdebi --non-interactive rstudio-server-latest-amd64.deb && \
+    rm -f rstudio-server-latest-amd64.deb && \
+    echo "auth-none=1" >> /etc/rstudio/rserver.conf && \
+    echo "server-daemonize=0" >> /etc/rstudio/rserver.conf && \
+    echo "USER=ubuntu" >> /etc/environment
+
 # Install Rust and Cargo
 RUN curl -y https://sh.rustup.rs -sSf | sh
 
@@ -136,8 +148,8 @@ RUN apt update && \
         php-cli \
         php-mbstring \
         php-sqlite3 \
-        xvfb \
-        x11vnc && \
+        x11vnc \
+        xvfb && \
     apt clean
 
 RUN apt install -y postgresql
