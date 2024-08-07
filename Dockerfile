@@ -64,7 +64,8 @@ RUN apt update && \
     echo "USER=ubuntu" >> /etc/environment
 
 # Install Rust and Cargo
-RUN curl -y https://sh.rustup.rs -sSf | sh
+RUN curl -y https://sh.rustup.rs -sSf | sh && \
+    . "$HOME/.cargo/env"  
 
 # Install Bitwarden CLI https://bitwarden.com/help/developer-quick-start/
 RUN curl https://bws.bitwarden.com/install | sh
